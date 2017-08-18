@@ -33,14 +33,19 @@ public class Fibonacci {
                 {BigInteger.valueOf(1), BigInteger.valueOf(0)}
         };
 
+        boolean powerOfTwo = true;
         while (n > 1) {
             if (n % 2 == 1) {
+                powerOfTwo = false;
                 multiplyMatrices(rest, fiboM);
             }
             multiplyMatrices(result, result);
             n /= 2;
         }
-        multiplyMatrices(result, rest); // TODO: we don't have to do that when n is a power of 2
+
+        if (!powerOfTwo) {
+            multiplyMatrices(result, rest);
+        }
         return result[1][0];
     }
 
