@@ -40,7 +40,7 @@ public class Fibonacci {
             multiplyMatrices(result, result);
             n /= 2;
         }
-        multiplyMatrices(result, rest);
+        multiplyMatrices(result, rest); // TODO: we don't have to do that when n is a power of 2
         return result[1][0];
     }
 
