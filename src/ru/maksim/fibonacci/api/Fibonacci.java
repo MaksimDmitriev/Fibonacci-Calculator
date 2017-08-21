@@ -21,30 +21,20 @@ public class Fibonacci {
         }
         // TODO: Negative numbers
         BigInteger[][] result = {
-                {BigInteger.valueOf(1), BigInteger.valueOf(1)},
-                {BigInteger.valueOf(1), BigInteger.valueOf(0)}
-        };
-        BigInteger[][] rest = {
-                {BigInteger.valueOf(1), BigInteger.valueOf(1)},
-                {BigInteger.valueOf(1), BigInteger.valueOf(0)}
+                {BigInteger.valueOf(1), BigInteger.valueOf(0)},
+                {BigInteger.valueOf(0), BigInteger.valueOf(1)}
         };
         BigInteger[][] fiboM = {
                 {BigInteger.valueOf(1), BigInteger.valueOf(1)},
                 {BigInteger.valueOf(1), BigInteger.valueOf(0)}
         };
 
-        boolean powerOfTwo = true;
-        while (n > 1) {
+        while (n > 0) {
             if (n % 2 == 1) {
-                powerOfTwo = false;
-                multiplyMatrices(rest, fiboM);
+                multiplyMatrices(result, fiboM);
             }
-            multiplyMatrices(result, result);
+            multiplyMatrices(fiboM, fiboM);
             n /= 2;
-        }
-
-        if (!powerOfTwo) {
-            multiplyMatrices(result, rest);
         }
         return result[1][0];
     }
